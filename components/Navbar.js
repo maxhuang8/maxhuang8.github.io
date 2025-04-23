@@ -11,11 +11,9 @@ export default function Navbar() {
     'About',
     'Research',
     'Projects',
-    'Talks',
-    'Podcasts',
-    'Investing',
-    'Uses',
-    'Reminder',
+    'Writing',
+    'Interests',
+    'Running',
   ]
   const [hovered, setHovered] = useState('')
   const { query } = useKBar()
@@ -96,6 +94,9 @@ const Header = styled('header', {
   zIndex: 3,
   marginTop: '13px',
   '@bp2': { marginTop: '0' },
+  '& a': {
+    borderBottom: 'none !important',
+  },
 })
 
 const List = styled('ul', {
@@ -103,6 +104,7 @@ const List = styled('ul', {
   padding: '0',
   listStyle: 'none',
   display: 'inline-flex',
+  gap: '30px',
   position: 'relative',
   top: '5px',
   '@bp1': { justifyContent: 'space-around' },
@@ -163,30 +165,16 @@ const NavContainer = styled(motion.span, {
   color: '$secondary',
   cursor: 'pointer',
   display: 'inline-block',
-  fontSize: '12px',
+  fontSize: '13px',
   fontWeight: 500,
-  letterSpacing: '1.2px',
+  letterSpacing: '2px',
   padding: '20px',
   textDecoration: 'none',
   textTransform: 'uppercase',
   transition: 'color $duration ease-in-out',
   '&:hover': {
     color: '$primary',
-  },
-  '&::after': {
-    display: 'none',
-    // content: '""',
-    // position: 'absolute',
-    // margin: '0px auto',
-    // top: '18px',
-    // left: '0px',
-    // right: '0px',
-    // height: '1px',
-    // width: '20px',
-    // background: 'rgb(255, 255, 255)',
-    // opacity: 0,
-    // transition: 'opacity $duration ease-in-out',
-  },
+  }
 })
 
 const NavHovered = styled(motion.span, {

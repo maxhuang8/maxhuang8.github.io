@@ -10,7 +10,7 @@ import items from '../data/talks'
 
 export async function getStaticProps() {
   const meta = {
-    title: 'Talks // Zeno Rocha',
+    title: 'Interests // Zeno Rocha',
     tagline: 'Confs. Meetups. Events.',
     image: '/static/images/talks-bw.jpg',
     primaryColor: 'purple',
@@ -20,7 +20,7 @@ export async function getStaticProps() {
   return { props: meta }
 }
 
-function Talks(props) {
+function Interests(props) {
   const renderFeatured = () => {
     const featured = ['Epic Web Conf', 'Nordic.JS', 'SFHTML5']
 
@@ -72,8 +72,8 @@ function Talks(props) {
         <meta content={title} property="og:title" />
         <meta content={stripHtml(description)} name="description" />
         <meta content={stripHtml(description)} property="og:description" />
-        <meta content="https://zenorocha.com/talks" property="og:url" />
-        <meta content={`https://zenorocha.com${image}`} property="og:image" />
+        <meta content="https://maxhuang8.github.io/interests" property="og:url" />
+        <meta content={`https://maxhuang8.github.io${image}`} property="og:image" />
       </Head>
 
       <AnimateSharedLayout>
@@ -132,6 +132,6 @@ function TalkItem(props) {
   )
 }
 
-Talks.Layout = Base
+Interests.Layout = Base
 
-export default Talks
+export default Interests

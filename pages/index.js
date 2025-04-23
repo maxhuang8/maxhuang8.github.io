@@ -6,6 +6,8 @@ import ShortcutHome from '../components/ShortcutHome'
 import { PostMain, PostContent, PostContainer } from '../components/Post'
 import { Wrapper } from '../components/Wrapper'
 import { getPersonJsonLd } from '../lib/json-ld'
+import Typewriter from '../components/Typewriter'
+import HeadshotReveal from '../components/HeadshotReveal'
 
 export async function getStaticProps() {
   return {
@@ -27,8 +29,8 @@ export default function Index(props) {
         <meta content={title} property="og:title" />
         <meta content={description} name="description" />
         <meta content={description} property="og:description" />
-        <meta content="https://zenorocha.com" property="og:url" />
-        <meta content={`https://zenorocha.com${image}`} property="og:image" />
+        <meta content="https://maxhuang8.github.io" property="og:url" />
+        <meta content={`https://maxhuang8.github.io${image}`} property="og:image" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -48,7 +50,16 @@ export default function Index(props) {
                 <strong>Student Researcher in the {' '}
                   <a href="https://tianlab.uchicago.edu/" target="blank">Tian Lab</a>
                 </strong><br />
-                {description}
+                Obsessed&nbsp;with&nbsp;
+                <Typewriter
+                  words={[
+                    'solving puzzles.', 
+                    'building stuff.', 
+                    'leveraging AI.', 
+                    'healthcare equity.', 
+                    'sleep.'
+                  ]}
+                />
               </p>
               <ShortcutHome />
             </div>

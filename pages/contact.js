@@ -8,7 +8,7 @@ import { styled } from '../stitches.config'
 
 export async function getStaticProps() {
   const meta = {
-    title: 'Contact // Zeno Rocha',
+    title: 'Contact // Max Huang',
     tagline: 'Emails. Emails. Emails.',
     image: '/static/images/reminder-bw.jpg',
     primaryColor: 'cyan',
@@ -20,7 +20,7 @@ export async function getStaticProps() {
 
 function Contact(props) {
   const { title, image } = props
-  const description = `<strong>I love chatting</strong> with software engineers, tech founders, students, and creators. <strong>I'm a busy person</strong>, so I can't promise that I'll reply to your email right away, but I'll try my best to respond in a timely manner.`
+  const description = `<strong>I love chatting</strong> with researchers, professors, philosophers, founders, and other students. <strong>I'm a busy person</strong>, so I can't promise that I'll reply to your email right away, but I'll try my best to respond in a timely manner.`
   const [isEmailSent, setIsEmailSent] = React.useState(undefined)
   const [showToast, setShowToast] = React.useState(false)
 
@@ -29,7 +29,7 @@ function Contact(props) {
 
     try {
       const isProd = process.env.NODE_ENV === 'production'
-      const base = isProd ? 'https://zenorocha.com' : 'http://localhost:3000'
+      const base = isProd ? 'https://maxhuang8.github.io' : 'http://localhost:3000'
 
       await fetch(`${base}/api/email`, {
         method: 'POST',
@@ -58,8 +58,8 @@ function Contact(props) {
         <meta content={title} property="og:title" />
         <meta content={stripHtml(description)} name="description" />
         <meta content={stripHtml(description)} property="og:description" />
-        <meta content="https://zenorocha.com/contact" property="og:url" />
-        <meta content={`https://zenorocha.com${image}`} property="og:image" />
+        <meta content="https://maxhuang8.github.io/contact" property="og:url" />
+        <meta content={`https://maxhuang8.github.io${image}`} property="og:image" />
       </Head>
 
       <Box>

@@ -15,21 +15,29 @@ import {
 import Lottie from 'lottie-react'
 import copyLinkIcon from '../public/static/icons/copy-link.json'
 import emailIcon from '../public/static/icons/email.json'
-import sourceIcon from '../public/static/icons/source.json'
 import aboutIcon from '../public/static/icons/about.json'
 import homeIcon from '../public/static/icons/home.json'
 import articlesIcon from '../public/static/icons/articles.json'
 import projectsIcon from '../public/static/icons/projects.json'
 import talksIcon from '../public/static/icons/talks.json'
 import podcastsIcon from '../public/static/icons/podcasts.json'
+import researchIcon from '../public/static/icons/research.json'
 import investingIcon from '../public/static/icons/investing.json'
 import usesIcon from '../public/static/icons/uses.json'
 import reminderIcon from '../public/static/icons/reminder.json'
+import { JetBrains_Mono } from 'next/font/google'
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: '500',
+  display: 'swap',
+  variable: '--font-jetbrains-mono',
+})
 
 export default function CommandBar(props) {
   const copyLinkRef = useRef()
   const emailRef = useRef()
-  const sourceRef = useRef()
+  const researchRef = useRef()
   const homeRef = useRef()
   const aboutRef = useRef()
   const articlesRef = useRef()
@@ -69,16 +77,6 @@ export default function CommandBar(props) {
       icon: <Lottie lottieRef={emailRef} style={iconSize} animationData={emailIcon} loop={false} autoplay={false} />,
     },
     {
-      id: 'source',
-      name: 'View Source',
-      shortcut: ['s'],
-      keywords: 'view-source',
-      section: 'General',
-      perform: () =>
-        window.open('https://github.com/zenorocha/zenorocha.com', '_blank'),
-      icon: <Lottie lottieRef={sourceRef} style={iconSize} animationData={sourceIcon} loop={false} autoplay={false} />,
-    },
-    {
       id: 'home',
       name: 'Home',
       shortcut: ['g', 'h'],
@@ -97,13 +95,13 @@ export default function CommandBar(props) {
       icon: <Lottie lottieRef={aboutRef} style={iconSize} animationData={aboutIcon} loop={false} autoplay={false} />,
     },
     {
-      id: 'articles',
-      name: 'Articles',
+      id: 'research',
+      name: 'Research',
       shortcut: ['g', 'b'],
       keywords: 'go-articles',
       section: 'Go To',
-      perform: () => router.push('/articles'),
-      icon: <Lottie lottieRef={articlesRef} style={iconSize} animationData={articlesIcon} loop={false} autoplay={false} />,
+      perform: () => router.push('/research'),
+      icon: <Lottie lottieRef={researchRef} style={iconSize} animationData={researchIcon} loop={false} autoplay={false} />,
     },
     {
       id: 'projects',
@@ -115,6 +113,15 @@ export default function CommandBar(props) {
       icon: <Lottie lottieRef={projectsRef} style={iconSize} animationData={projectsIcon} loop={false} autoplay={false} />,
     },
     {
+      id: 'articles',
+      name: 'Writing',
+      shortcut: ['g', 'c'],
+      keywords: 'go-articles',
+      section: 'Go To',
+      perform: () => router.push('/writing'),
+      icon: <Lottie lottieRef={articlesRef} style={iconSize} animationData={articlesIcon} loop={false} autoplay={false} />,
+    },
+    {
       id: 'talks',
       name: 'Talks',
       shortcut: ['g', 't'],
@@ -122,15 +129,6 @@ export default function CommandBar(props) {
       section: 'Go To',
       perform: () => router.push('/talks'),
       icon: <Lottie lottieRef={talksRef} style={iconSize} animationData={talksIcon} loop={false} autoplay={false} />,
-    },
-    {
-      id: 'podcasts',
-      name: 'Podcasts',
-      shortcut: ['g', 'c'],
-      keywords: 'go-podcasts',
-      section: 'Go To',
-      perform: () => router.push('/podcasts'),
-      icon: <Lottie lottieRef={podcastsRef} style={iconSize} animationData={podcastsIcon} loop={false} autoplay={false} />,
     },
     {
       id: 'investing',
@@ -165,12 +163,14 @@ export default function CommandBar(props) {
     <>
       <KBarProvider actions={actions}>
         <KBarPortal>
-          <Positioner>
-            <Animator>
-              <Search placeholder="Type a command or search…" />
-              <RenderResults />
-            </Animator>
-          </Positioner>
+          <div className={jetbrainsMono.className}>
+            <Positioner>
+              <Animator>
+                <Search placeholder="Type a command or search…" />
+                <RenderResults />
+              </Animator>
+            </Positioner>
+          </div>
         </KBarPortal>
 
         {props.children}

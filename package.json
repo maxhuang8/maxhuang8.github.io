@@ -10,6 +10,9 @@
     "deploy": "vercel --prod"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-brands-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "@radix-ui/react-toast": "^1.0.0",
     "@react-email/html": "^0.0.1",
     "@stitches/react": "^1.2.6",
@@ -32,6 +35,7 @@
     "resend": "^0.12.0"
   },
   "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
     "eslint": "^8.9.0",
     "eslint-config-next": "^12.0.10",
     "eslint-config-prettier": "^8.3.0"

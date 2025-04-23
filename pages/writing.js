@@ -27,7 +27,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      title: 'Research // Zeno Rocha',
+      title: 'Writing // Zeno Rocha',
       tagline: 'Stories. Updates. Guides.',
       image: '/static/images/articles-bw.jpg',
       primaryColor: 'yellow',
@@ -38,7 +38,7 @@ export async function getStaticProps() {
   }
 }
 
-function Research(props) {
+function Writing(props) {
   const renderFeatured = () => {
     return props.featuredPosts.map((post, index) => {
       return (
@@ -82,28 +82,28 @@ function Research(props) {
         <meta content={title} property="og:title" />
         <meta content={stripHtml(description)} name="description" />
         <meta content={stripHtml(description)} property="og:description" />
-        <meta content="https://maxhuang8.github.io/research" property="og:url" />
+        <meta content="https://maxhuang8.github.io/writing" property="og:url" />
         <meta content={`https://maxhuang8.github.io${image}`} property="og:image" />
       </Head>
 
       <AnimateSharedLayout>
         <p dangerouslySetInnerHTML={{ __html: description }} />
 
-        <h2>Featured Articles</h2>
-        <FeaturedResearch>{renderFeatured()}</FeaturedResearch>
+        <h2>Featured Writing</h2>
+        <FeaturedWriting>{renderFeatured()}</FeaturedWriting>
 
-        <h2>All Articles</h2>
+        <h2>All Writing</h2>
         <ListGroup>{renderAll()}</ListGroup>
       </AnimateSharedLayout>
     </>
   )
 }
 
-const FeaturedResearch = styled('div', {
+const FeaturedWriting = styled('div', {
   margin: '10px 0 0 -20px',
   '@bp2': { display: 'flex', justifyContent: 'space-between' },
 })
 
-Research.Layout = Base
+Writing.Layout = Base
 
-export default Research
+export default Writing

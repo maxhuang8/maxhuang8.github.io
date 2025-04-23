@@ -73,8 +73,8 @@ function Projects(props) {
         <meta content={title} property="og:title" />
         <meta content={stripHtml(description)} name="description" />
         <meta content={stripHtml(description)} property="og:description" />
-        <meta content="https://zenorocha.com/projects" property="og:url" />
-        <meta content={`https://zenorocha.com${image}`} property="og:image" />
+        <meta content="https://maxhuang8.github.io/projects" property="og:url" />
+        <meta content={`https://maxhuang8.github.io${image}`} property="og:image" />
       </Head>
 
       <AnimateSharedLayout>
