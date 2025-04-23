@@ -1,4 +1,4 @@
-import { createStitches } from '@stitches/react'
+import { createStitches } from '@stitches/react';
 
 export const {
   styled,
@@ -26,9 +26,9 @@ export const {
       command: 'rgba(255, 255, 255, 0.05)',
     },
     fonts: {
-      body: 'Biotif, sans-serif',
-      code: 'Fira Code, monospace',
-      heading: 'Neuzeit Grotesk Bold, sans-serif',
+      body: 'var(--font-jetbrains-mono), monospace',
+      code: 'var(--font-jetbrains-mono), monospace',
+      heading: 'var(--font-jetbrains-mono), monospace',
     },
     space: {
       navHeightDesktop: '60px',
@@ -47,15 +47,31 @@ export const {
     bp3: '(max-width: 780px)',
     bp4: '(max-width: 1024px)',
   },
-})
+});
 
 const globalStyles = globalCss({
+  '@font-face': [
+    {
+      fontFamily: 'JetBrains Mono',
+      src: 'url("/static/fonts/JetBrainsMono-Medium.ttf") format("truetype")',
+      fontWeight: 500,
+      fontStyle: 'normal',
+      fontDisplay: 'swap',
+    },
+    {
+      fontFamily: 'JetBrains Mono',
+      src: 'url("/static/fonts/JetBrainsMono-MediumItalic.ttf") format("truetype")',
+      fontWeight: 500,
+      fontStyle: 'italic',
+      fontDisplay: 'swap',
+    },
+  ],
   '*': {
     fontFamily: '$body',
   },
   'html, body': {
-    margin: '0',
-    padding: '0',
+    margin: 0,
+    padding: 0,
     WebkitFontSmoothing: 'antialiased',
     background: '$background',
   },
@@ -73,12 +89,9 @@ const globalStyles = globalCss({
     height: '32px',
     fill: 'white',
   },
-  figure: {
-    margin: 0,
-  },
-  twitterwidget: {
-    margin: '0 auto',
-  },
+  figure: { margin: 0 },
+  twitterwidget: { margin: '0 auto' },
+ 
   code: {
     background: '#151417',
     borderRadius: '$borderRadius',
@@ -86,12 +99,11 @@ const globalStyles = globalCss({
     fontFamily: '$code',
     fontSize: '15px',
   },
-  ':not(pre) > code': {
-    padding: '4px',
-  },
+  ':not(pre) > code': { padding: 4 },
+
   h1: {
     fontFamily: '$heading',
-    fontSize: '48px',
+    fontSize: 48,
     lineHeight: '50px',
     margin: '0 0 20px',
     color: '$primary',
@@ -99,16 +111,15 @@ const globalStyles = globalCss({
   h2: {
     color: '$primary',
     margin: '60px 0 0',
-    fontSize: '24px',
+    fontSize: 24,
   },
   'h3, h3 a': {
     color: '$primary',
-    fontSize: '18px',
+    fontSize: 18,
     margin: '20px 0 0',
   },
-  ul: {
-    margin: 0,
-  },
+
+  ul: { margin: 0 },
   img: {
     borderRadius: '8px',
     minWidth: '100%',
@@ -126,8 +137,8 @@ const globalStyles = globalCss({
     borderLeft: '4px solid $hover',
     color: '$secondary',
     fontStyle: 'italic',
-    margin: '0',
-    paddingLeft: '20px',
+    margin: 0,
+    paddingLeft: 20,
   },
   a: {
     borderBottom: '.5px solid $secondary',
@@ -135,53 +146,7 @@ const globalStyles = globalCss({
     textDecoration: 'none',
     transition: 'opacity $duration ease-in-out',
   },
-  'a:hover, a:focus': {
-    opacity: '0.8',
-  },
-  '@font-face': [
-    {
-      fontFamily: 'Neuzeit Grotesk Bold',
-      src: `url("/static/font/NeuzeitGrotesk-Bold.woff2") format("woff2"),
-        url("/static/font/NeuzeitGrotesk-Bold.woff") format("woff")`,
-      fontWeight: 'normal',
-      fontStyle: 'normal',
-    },
-    {
-      fontFamily: 'Fira Code',
-      src: `url("/static/font/FiraCode-Regular.woff2") format("woff2"),
-        url("/static/font/FiraCode-Regular.woff") format("woff")`,
-      fontWeight: 'normal',
-      fontStyle: 'normal',
-    },
-    {
-      fontFamily: 'Biotif',
-      src: `url("/static/font/Biotif-Bold.woff2") format("woff2"),
-        url("/static/font/Biotif-Bold.woff") format("woff")`,
-      fontWeight: 'bold',
-      fontStyle: 'normal',
-    },
-    {
-      fontFamily: 'Biotif',
-      src: `url("/static/font/Biotif-Book.woff2") format("woff2"),
-        url("/static/font/Biotif-Book.woff") format("woff")`,
-      fontWeight: 500,
-      fontStyle: 'normal',
-    },
-    {
-      fontFamily: 'Biotif',
-      src: `url("/static/font/Biotif-Regular.woff2") format("woff2"),
-        url("/static/font/Biotif-Regular.woff") format("woff")`,
-      fontWeight: 'normal',
-      fontStyle: 'normal',
-    },
-    {
-      fontFamily: 'Biotif',
-      src: `url("/static/font/Biotif-RegularItalic.woff2") format("woff2"),
-        url("/static/font/Biotif-RegularItalic.woff") format("woff")`,
-      fontWeight: 'normal',
-      fontStyle: 'italic',
-    },
-  ],
-})
+  'a:hover, a:focus': { opacity: 0.8 },
+});
 
-globalStyles()
+globalStyles();

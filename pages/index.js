@@ -10,8 +10,8 @@ import { getPersonJsonLd } from '../lib/json-ld'
 export async function getStaticProps() {
   return {
     props: {
-      title: 'Zeno Rocha',
-      description: 'Obsessed with developer experience',
+      title: 'Max Huang',
+      description: 'Obsessed with solving puzzles',
       image: '/static/images/home-bw.jpg',
     },
   }
@@ -45,8 +45,8 @@ export default function Index(props) {
             <div>
               <h1>{title}</h1>
               <p>
-                <strong>Founder & CEO at{' '}
-                  <a href="https://resend.com" target="blank">Resend</a>
+                <strong>Student Researcher in the {' '}
+                  <a href="https://tianlab.uchicago.edu/" target="blank">Tian Lab</a>
                 </strong><br />
                 {description}
               </p>

@@ -27,7 +27,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      title: 'Articles // Zeno Rocha',
+      title: 'Research // Zeno Rocha',
       tagline: 'Stories. Updates. Guides.',
       image: '/static/images/articles-bw.jpg',
       primaryColor: 'yellow',
@@ -38,7 +38,7 @@ export async function getStaticProps() {
   }
 }
 
-function Articles(props) {
+function Research(props) {
   const renderFeatured = () => {
     return props.featuredPosts.map((post, index) => {
       return (
@@ -90,7 +90,7 @@ function Articles(props) {
         <p dangerouslySetInnerHTML={{ __html: description }} />
 
         <h2>Featured Articles</h2>
-        <FeaturedArticles>{renderFeatured()}</FeaturedArticles>
+        <FeaturedResearch>{renderFeatured()}</FeaturedResearch>
 
         <h2>All Articles</h2>
         <ListGroup>{renderAll()}</ListGroup>
@@ -99,11 +99,11 @@ function Articles(props) {
   )
 }
 
-const FeaturedArticles = styled('div', {
+const FeaturedResearch = styled('div', {
   margin: '10px 0 0 -20px',
   '@bp2': { display: 'flex', justifyContent: 'space-between' },
 })
 
-Articles.Layout = Base
+Research.Layout = Base
 
-export default Articles
+export default Research

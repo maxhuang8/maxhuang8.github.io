@@ -9,7 +9,7 @@ export default function Navbar() {
   const router = useRouter()
   const pages = [
     'About',
-    'Articles',
+    'Research',
     'Projects',
     'Talks',
     'Podcasts',
@@ -24,7 +24,7 @@ export default function Navbar() {
     <AnimateSharedLayout>
       <Header>
         <Link href="/" passHref>
-          <ButtonLogo as="a">z</ButtonLogo>
+          <ButtonLogo as="a">mph</ButtonLogo>
         </Link>
 
         <Nav>
@@ -41,12 +41,12 @@ export default function Navbar() {
                         onHoverStart={() => setHovered(page)}
                         onHoverEnd={() => setHovered('')}
                         css={
-                          router.pathname == path
+                          router.pathname === path && router.pathname !== '/'
                             ? {
                                 color: '$primary',
-                                '&::after': { opacity: 1 },
+                                // '&::after': { opacity: 1 },
                               }
-                            : ''
+                            : {}
                         }
                       >
                         {isHovered && (
@@ -129,7 +129,7 @@ const Icon = styled('i', {
 
 const ButtonLogo = styled(ButtonHeader, {
   fontWeight: 700,
-  fontSize: '32px',
+  fontSize: '24px',
   textDecoration: 'none',
   marginLeft: '12px',
   fontFamily: '$heading',
@@ -153,7 +153,9 @@ const Aside = styled('div', {
 
 const Anchor = styled('a', {
   border: 0,
+  borderBottom: 'none !important',
   position: 'relative',
+  textDecoration: 'none',
   '&:hover, &:focus': { opacity: 1 },
 })
 
@@ -172,17 +174,18 @@ const NavContainer = styled(motion.span, {
     color: '$primary',
   },
   '&::after': {
-    content: '""',
-    position: 'absolute',
-    margin: '0px auto',
-    top: '18px',
-    left: '0px',
-    right: '0px',
-    height: '1px',
-    width: '20px',
-    background: 'rgb(255, 255, 255)',
-    opacity: 0,
-    transition: 'opacity $duration ease-in-out',
+    display: 'none',
+    // content: '""',
+    // position: 'absolute',
+    // margin: '0px auto',
+    // top: '18px',
+    // left: '0px',
+    // right: '0px',
+    // height: '1px',
+    // width: '20px',
+    // background: 'rgb(255, 255, 255)',
+    // opacity: 0,
+    // transition: 'opacity $duration ease-in-out',
   },
 })
 
