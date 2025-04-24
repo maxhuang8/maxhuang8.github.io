@@ -7,7 +7,7 @@ import { PostMain, PostContent, PostContainer } from '../components/Post'
 import { Wrapper } from '../components/Wrapper'
 import { getPersonJsonLd } from '../lib/json-ld'
 import Typewriter from '../components/Typewriter'
-import HeadshotReveal from '../components/HeadshotReveal'
+import PolymerizationCursor from '../components/PolymerizationCursor'
 
 export async function getStaticProps() {
   return {
@@ -24,6 +24,7 @@ export default function Index(props) {
 
   return (
     <Wrapper>
+      <PolymerizationCursor />
       <Head>
         <title>{title}</title>
         <meta content={title} property="og:title" />
