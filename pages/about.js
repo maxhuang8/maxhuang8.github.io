@@ -1,4 +1,3 @@
-/* pages/about.jsx */
 import React from 'react'
 import Head from 'next/head'
 import { parseISO, format, intervalToDuration } from 'date-fns'
@@ -10,6 +9,7 @@ import Pronunciation from '../components/Pronunciation'
 import Toast from '../components/Toast'
 import stripHtml from '../lib/strip-html'
 import items from '../data/about'
+import schools from '../data/education'
 import Lottie from 'lottie-react'
 import copyBioIcon from '../public/static/icons/copy-bio.json'
 import downloadIcon from '../public/static/icons/download.json'
@@ -48,16 +48,16 @@ function About({ title, description, image }) {
           Currently, I'm studying molecular engineering <strong>@UChicago</strong>, where I'm also a year-round varsity athlete on the cross country and track teams.
         </Paragraph>
 
-        <Paragraph css={{ marginTop: '28px' }}>
+        <Paragraph css={{ marginTop: '24px' }}>
           I'm an <strong>undergraduate researcher</strong> in the Tian Lab,
           working on materials synthesis for solid polymer electrolytes. Before
-          that, I did molecular biology research at <br />
+          that, I did molecular biology research in high school at{' '}
           <strong>Phillips Academy Andover</strong>.
         </Paragraph>
 
-        <Paragraph css={{ marginTop: '28px' }}>
+        <Paragraph css={{ marginTop: '24px' }}>
           I'm <strong>fascinated by</strong> bioelectronics, healthcare equity,
-          and side projects. When I'm not working, I like running, watching TV
+          and philosophy. When I'm not working, I like running, watching TV
           shows, and <strong>sleeping</strong>.
         </Paragraph>
       </Section>
@@ -120,8 +120,8 @@ function About({ title, description, image }) {
     )
   }
 
-  const renderAll = () =>
-    items.map((item, i) => (
+  const renderAll = (list) =>
+    list.map((item, i) => (
       <div key={i} style={{ marginBottom: 40 }}>
         <h3>{item.jobTitle}</h3>
         <p style={{ margin: 0 }}>
@@ -170,7 +170,12 @@ function About({ title, description, image }) {
       {renderBio()}
 
       <h2>My Experience</h2>
-      {renderAll()}
+      {renderAll(items)}
+
+      <div style={{ marginBottom: 64 }} />
+
+      <h2>Education</h2>
+      {renderAll(schools)}
 
       <Toast
         title={toastTitle}

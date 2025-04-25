@@ -8,7 +8,9 @@ const blink = keyframes({
 
 const Cursor = styled('span', {
   display: 'inline-block',
-  width: '1ch',
+  width: '8px',
+  height: '0.8em',
+  backgroundColor: 'currentColor',
   marginLeft: '2px',
   animation: `${blink} 1s step-end infinite`,
 })
@@ -67,7 +69,7 @@ export default function Typewriter ({
   return (
     <span>
       {word.slice(0, charIdx)}
-      <Cursor>|</Cursor>
+      <Cursor aria-hidden />
     </span>
   )
 }
