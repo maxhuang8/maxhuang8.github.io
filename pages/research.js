@@ -27,8 +27,8 @@ export async function getStaticProps() {
 
   return {
     props: {
-      title: 'Research // Zeno Rocha',
-      tagline: 'Stories. Updates. Guides.',
+      title: 'Research // Max Huang',
+      tagline: 'Test. Fail. Solve. Share.',
       image: '/static/images/articles-bw.jpg',
       primaryColor: 'yellow',
       secondaryColor: 'pink',
@@ -39,25 +39,22 @@ export async function getStaticProps() {
 }
 
 function Research(props) {
-  const renderFeatured = () => {
-    return props.featuredPosts.map((post, index) => {
-      return (
-        <FeaturedArticle
-          key={index}
-          index={index}
-          href={`/${post.slug}/`}
-          title={post.title}
-          description={post.description}
-          image={post.image}
-          stats={post.stats}
-          content={post.content}
-        />
-      )
-    })
-  }
+  const renderFeatured = () =>
+    props.featuredPosts.map((post, index) => (
+      <FeaturedArticle
+        key={index}
+        index={index}
+        href={`/${post.slug}/`}
+        title={post.title}
+        description={post.description}
+        image={post.image}
+        stats={post.stats}
+        content={post.content}
+      />
+    ))
 
-  const renderAll = () => {
-    return props.allPosts.map((post, index) => {
+  const renderAll = () =>
+    props.allPosts.map((post, index) => {
       if (!post.skip) {
         return (
           <ListItem
@@ -70,10 +67,18 @@ function Research(props) {
         )
       }
     })
-  }
 
   const { title, image } = props
-  const description = `Here you can find all the <strong>${props.allPosts.length} articles</strong> I wrote. You can read about web development, software engineering, and tech career in both English and Portuguese.`
+
+  // Book title now wrapped in <cite> so it shows in italics
+  const description = `In Paul Farmer’s 2003 book <cite>Pathologies of Power</cite>, he asks us, 
+  “If access to health care is considered a human right, who is considered human 
+  enough to have that right?” This pressing question captures a fundamental truth: 
+  everyone deserves access to proper care. My understanding of today's existing 
+  global healthcare disparities, framed in the ethos of Farmer’s question, fuels my twofold 
+  desire to design cost-effective materials for healthcare 
+  applications and bring the benefits of cutting-edge research to those who need 
+  it most, regardless of their socioeconomic status or birthplace.`
 
   return (
     <>
@@ -89,6 +94,7 @@ function Research(props) {
       <AnimateSharedLayout>
         <p dangerouslySetInnerHTML={{ __html: description }} />
 
+        <div style={{ marginBottom: 64 }} />
         <h2>Featured Articles</h2>
         <FeaturedResearch>{renderFeatured()}</FeaturedResearch>
 
