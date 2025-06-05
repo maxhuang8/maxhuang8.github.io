@@ -2,15 +2,16 @@ import React from 'react'
 import Head from 'next/head'
 import { AnimateSharedLayout } from 'framer-motion'
 import Base from '../layouts/Base'
-import FeaturedProject from '../components/FeaturedProject'
-import { FeaturedProjects } from '../components/FeaturedProjects'
+//not in use
+// import FeaturedProject from '../components/FeaturedProject'
+// import { FeaturedProjects } from '../components/FeaturedProjects'
 import stripHtml from '../lib/strip-html'
 import items from '../data/projects'
 
 export async function getStaticProps() {
   const meta = {
-    title: 'Projects // Zeno Rocha',
-    tagline: 'Work. Hobby. Open Source.',
+    title: 'Projects // Max Huang',
+    tagline: 'Passion. Purpose. Impact.',
     image: '/static/images/projects-bw.jpg',
     primaryColor: 'cyan',
     secondaryColor: 'green',
@@ -20,23 +21,25 @@ export async function getStaticProps() {
 }
 
 function Projects(props) {
-  const renderFeatured = () => {
-    const featured = ['Dracula', 'Clipboard.js', 'Resend', 'React Email']
+  
+  // uncomment if I want to render featured projects in the future
+  // const renderFeatured = () => {
+  //   const featured = ['Dracula', 'Clipboard.js', 'Resend', 'React Email']
 
-    return items
-      .map(item => {
-        return item.projects.filter(project => featured.includes(project.title))
-      })
-      .filter(item => {
-        if (item.length > 0) {
-          return item
-        }
-      })
-      .flat()
-      .map((item, index) => {
-        return <FeaturedProject key={index} project={item} />
-      })
-  }
+  //   return items
+  //     .map(item => {
+  //       return item.projects.filter(project => featured.includes(project.title))
+  //     })
+  //     .filter(item => {
+  //       if (item.length > 0) {
+  //         return item
+  //       }
+  //     })
+  //     .flat()
+  //     .map((item, index) => {
+  //       return <FeaturedProject key={index} project={item} />
+  //     })
+  // }
 
   const renderAll = () => {
     return items.map((item, index) => {
@@ -64,7 +67,7 @@ function Projects(props) {
   }
 
   const { title, image } = props
-  const description = `I'm obsessed with side projects and <strong>building in public</strong>. Here you can navigate to <strong>${getTotalProjects()} different</strong> websites, apps, and libraries I built. Some projects are still active, others have been discontinued.`
+  const description = `I enjoy building side projects and leaving a <strong>positive impact</strong> on others. Here you can check out <strong>${getTotalProjects()} different</strong> projects I've undertaken. Have fun exploring!`
 
   return (
     <>
@@ -80,10 +83,11 @@ function Projects(props) {
       <AnimateSharedLayout>
         <p dangerouslySetInnerHTML={{ __html: description }} />
 
-        <h2>Featured Projects</h2>
-        <FeaturedProjects>{renderFeatured()}</FeaturedProjects>
+        {/* uncomment if I want to render featured projects in the future}
+        {/* <h2>Featured Projects</h2>
+        <FeaturedProjects>{renderFeatured()}</FeaturedProjects> */}
 
-        <h2>All Projects</h2>
+        <h2>Projects (Year Started) </h2>
         {renderAll()}
       </AnimateSharedLayout>
     </>

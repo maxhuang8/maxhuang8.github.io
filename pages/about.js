@@ -20,7 +20,7 @@ export async function getStaticProps() {
     props: {
       title: 'About // Max Huang',
       description:
-        "Max Huang is a Taiwanese-Slovakian researcher and distance runner. Though he is from New Jersey, he currently attends the University of Chicago, where he's studying molecular engineering on the chemical engineering track. His lifelong appreciation for building, puzzle solving, and sharing knowledge led him to pursue a career in building innovative, cost-effective healthcare devices for all.",
+        "Max Huang is a Taiwanese-Slovakian researcher and distance runner. Though he is from New Jersey, he currently attends the University of Chicago, where he's studying molecular engineering on the chemical engineering track. His lifelong appreciation for building, puzzle solving, and helping others led him to pursue a career in building innovative, cost-effective healthcare devices for all.",
       tagline: 'Solve. Build. Share.',
       image: '/static/images/about_headshot.png',
       primaryColor: 'pink',

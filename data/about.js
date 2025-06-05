@@ -7,7 +7,7 @@ const items = [
     location: 'Univerity of Chicago',
   },
   {
-    jobTitle: 'Member of Human Practices and Wet Lab Team',
+    jobTitle: 'Head of Community and Outreach',
     company: 'GeneHackers Student Organization',
     companyUrl: 'https://genehackers.rso.uchicago.edu/',
     startDate: '2024-12-01',
