@@ -24,6 +24,7 @@ function Contact(props) {
   const [isEmailSent, setIsEmailSent] = React.useState(undefined)
   const [showToast, setShowToast] = React.useState(false)
 
+  //below is currently not in use since site is static
   const onSendEmail = async (e) => {
     e.preventDefault()
 
