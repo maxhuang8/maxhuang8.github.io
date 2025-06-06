@@ -1,6 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     reactStrictMode: true,
+
+    output: 'export', //for static site build
+
+    trailingSlash: true, //for static site build
+
+    images: { unoptimized: true }, //for static site build
   
     webpack(config) {
       config.module.rules.push({

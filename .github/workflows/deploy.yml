@@ -1,0 +1,32 @@
+name: Deploy static Next.js site to GitHub Pages
+
+on:
+  push:
+    branches: [main]           # rebuild whenever main updates
+  workflow_dispatch:           # manual “Run workflow” button (optional)
+
+jobs:
+  build:
+    permissions:
+      contents: write          # needed for gh-pages push
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # Optional dependency cache
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - run: npm ci            # install deps
+      - run: npm run build
+      - run: npm run export    # creates ./out
+
+      # Publish ./out to the gh-pages branch
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
+          enable_jekyll: false  # auto-adds .nojekyll
