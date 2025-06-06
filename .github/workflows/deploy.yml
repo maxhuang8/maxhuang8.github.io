@@ -22,7 +22,6 @@ jobs:
 
       - run: npm ci            # install deps
       - run: npm run build
-      - run: npm run export    # creates ./out
 
       # Publish ./out to the gh-pages branch
       - uses: peaceiris/actions-gh-pages@v4
