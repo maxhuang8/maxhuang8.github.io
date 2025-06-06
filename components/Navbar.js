@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { motion, AnimateSharedLayout } from 'framer-motion'
 import { useKBar } from 'kbar'
+import MessagePopup from '../components/Credit'
 
 export default function Navbar() {
   const router = useRouter()
@@ -15,9 +16,11 @@ export default function Navbar() {
     'Running',
   ]
   const [hovered, setHovered] = useState('')
+  const [showPopup, setShowPopup] = useState(false) 
   const { query } = useKBar()
 
   return (
+    <>
     <AnimateSharedLayout>
       <Header>
         <Link href="/" passHref>
@@ -68,15 +71,26 @@ export default function Navbar() {
           <ButtonHeader
             as="button"
             type="button"
-            aria-label="Command"
-            onClick={query.toggle}
+            aria-label="Toggle popup"
+            onClick={() => setShowPopup(true)}
             css={{ padding: '0 8px' }}
           >
-            <Icon className="ri-command-line" />
+            credit
           </ButtonHeader>
         </Aside>
       </Header>
     </AnimateSharedLayout>
+
+    <MessagePopup
+      isOpen={showPopup}
+      onClose={() => setShowPopup(false)}
+      title="Credit"
+      message="This site began as a fork of Zeno Rocha’s open-source personal site (MIT-licensed).
+      I’ve since refactored the layout and styling, changed up the pages, and layered in several new features to fit my own work.
+      Grateful to Zeno for making such a solid foundation publicly available."
+      showCloseButton={true}
+    />
+    </>
   )
 }
 
@@ -103,7 +117,7 @@ const List = styled('ul', {
   padding: '0',
   listStyle: 'none',
   display: 'inline-flex',
-  gap: '68px',
+  gap: '62px',
   position: 'relative',
   top: '5px',
   '@bp1': { justifyContent: 'space-around' },
