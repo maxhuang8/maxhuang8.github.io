@@ -45,16 +45,31 @@ export const PostContent = styled('div', {
   },
   '& .post-image-caption': {
     color: '$secondary',
-    textAlign: 'center',
-    fontStyle: 'italic',
+    textAlign: 'left',
     fontSize: '14px',
+    paddingLeft: '1.75em',
+    textIndent: '-1.75em',
+    lineHeight: '1.4',
+  },
+  '& .post-image-caption .figure-label': {
+    display: 'block',
+    fontWeight: 700,
+    fontStyle: 'normal',
+  },
+  '& .post-image-caption .figure-cite': {
+    display: 'block',
+    fontStyle: 'normal',
   },
   '& .post-image-full': {
     margin: '20px 0 0',
-    maxWidth: 'initial',
-    width: '70vw',
+    maxWidth: '100%',
+    width: 'auto',
+    height: 'auto',
+    maxHeight: '60vh',
+    objectPosition: 'left center',
+    objectFit: 'contain',
     '@bp2': {
-      marginLeft: 'calc(-1 * (70vw - 760px) / 2)',
+      marginLeft: 0, //'calc(-1 * (70vw - 760px) / 2)'
     },
     '@bp4': {
       marginLeft: 0,
@@ -89,4 +104,49 @@ export const PostContent = styled('div', {
     fontSize: '14px',
     marginTop: -30,
   },
+  '& .works-cited-title': {
+    textAlign: 'left',
+    fontWeight: 600,
+    marginTop: '3em',
+    marginBottom: '1em',
+  },
+  '& .citation': {
+    paddingLeft: '1.75em',    
+    textIndent: '-1.75em',     
+    marginBottom: '1.5em',
+    lineHeight: '1.6',
+  },
+  '& .citation-notes': {
+    marginTop: '0.75em',
+    marginLeft: '1.75em',      
+    paddingLeft: '0',
+  },
+  '& .citation-notes li': {
+    marginBottom: '0.75em',
+    paddingLeft: '0.5em',     
+    textIndent: '-0.5em',   
+  },
+  '& .endnotes-title': {
+    textAlign: 'left',
+    fontWeight: 600,
+    marginTop: '3em',
+    marginBottom: '1em',
+  },
+  '& .endnote-list': {
+    fontSize: '11px',
+    lineHeight: '1.4',
+    margin: 0,
+    padding: 0,
+    listStyleType: 'decimal',
+    listStylePosition: 'inside',
+  },
+
+  '& .endnote-list li': {
+    marginBottom: '0.5em',
+    paddingLeft: '1.25em',
+    textIndent: '-1.25em',
+  },
+  '& p':{
+    marginBottom: '2em',
+  }
 })

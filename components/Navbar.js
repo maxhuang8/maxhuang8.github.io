@@ -12,7 +12,6 @@ export default function Navbar() {
     'Research',
     'Projects',
     'Writing',
-    'Interests',
     'Running',
   ]
   const [hovered, setHovered] = useState('')
@@ -104,7 +103,7 @@ const List = styled('ul', {
   padding: '0',
   listStyle: 'none',
   display: 'inline-flex',
-  gap: '30px',
+  gap: '68px',
   position: 'relative',
   top: '5px',
   '@bp1': { justifyContent: 'space-around' },

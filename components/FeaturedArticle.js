@@ -12,7 +12,7 @@ export default function FeaturedArticle(props) {
         <Container>
           <ImageContainer css={{ backgroundImage: `url(${props.image})` }} />
           <Content>
-            <Title>{props.title}</Title>
+            <Title>{props.abbrTitle}</Title>
             <Description>{props.description}</Description>
             <Stats>{stats.text}</Stats>
           </Content>
@@ -92,13 +92,16 @@ const Description = styled('p', {
 })
 
 const Stats = styled('p', {
-  margin: '5px 0 0',
+  margin: '0 0 0',
   color: '$primary',
   textTransform: 'uppercase',
   display: 'inline-block',
   fontWeight: 500,
   letterSpacing: '1.2px',
   fontSize: '12px',
+  position: 'relative',
+  top: '-2em',  
+
 })
 
 const AnimContainer = styled(motion.div, {

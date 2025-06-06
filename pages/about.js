@@ -45,7 +45,8 @@ function About({ title, description, image }) {
       <Section>
         <Paragraph css={{ marginTop: '16px', '@bp2': { marginTop: '-6px' } }}>
           <strong>Hi, I'm Max Huang.</strong>{' '}
-          Currently, I'm studying molecular engineering <strong>@UChicago</strong>, where I'm also a year-round varsity athlete on the cross country and track teams.
+          Currently, I'm studying molecular engineering at <strong>UChicago</strong>, 
+          where I'm also a year-round varsity athlete on the XC and track teams.
         </Paragraph>
 
         <Paragraph css={{ marginTop: '24px' }}>
@@ -56,9 +57,8 @@ function About({ title, description, image }) {
         </Paragraph>
 
         <Paragraph css={{ marginTop: '24px' }}>
-          I'm <strong>fascinated by</strong> bioelectronics, healthcare equity,
-          and philosophy. When I'm not working, I like running, watching TV
-          shows, and <strong>sleeping</strong>.
+          I'm <strong>fascinated by</strong> bioelectronics and healthcare equity.
+          When I'm not working, I like running, watching TV, and <strong>sleeping</strong>.
         </Paragraph>
       </Section>
     </Container>

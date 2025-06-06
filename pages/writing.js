@@ -9,25 +9,26 @@ import { ListGroup } from '../components/ListGroup'
 import { AnimateSharedLayout } from 'framer-motion'
 
 export async function getStaticProps() {
-  const allPosts = getAllPosts(['date', 'skip', 'slug', 'title'])
+  const allPosts = getAllPosts(['date', 'skip', 'slug', 'title', 'abbrTitle'])
 
   const featuredParams = [
     'date',
     'slug',
     'title',
+    'abbrTitle',
     'image',
     'content',
     'description',
   ]
 
   const featuredPosts = [
-    getPostBySlug('the-two-types-of-quality', featuredParams),
-    getPostBySlug('how-is-life-post-yc', featuredParams),
+    getPostBySlug('a-blank-reflection', featuredParams),
+    getPostBySlug('questioning-the-press', featuredParams),
   ]
 
   return {
     props: {
-      title: 'Writing // Zeno Rocha',
+      title: 'Writing // Max Huang',
       tagline: 'Stories. Updates. Guides.',
       image: '/static/images/articles-bw.jpg',
       primaryColor: 'yellow',
@@ -47,6 +48,7 @@ function Writing(props) {
           index={index}
           href={`/${post.slug}/`}
           title={post.title}
+          abbrTitle={post.abbrTitle}
           description={post.description}
           image={post.image}
           stats={post.stats}
