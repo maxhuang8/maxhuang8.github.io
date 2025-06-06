@@ -19,12 +19,8 @@ import aboutIcon from '../public/static/icons/about.json'
 import homeIcon from '../public/static/icons/home.json'
 import articlesIcon from '../public/static/icons/articles.json'
 import projectsIcon from '../public/static/icons/projects.json'
-import talksIcon from '../public/static/icons/talks.json'
 import podcastsIcon from '../public/static/icons/podcasts.json'
 import researchIcon from '../public/static/icons/research.json'
-import investingIcon from '../public/static/icons/investing.json'
-import usesIcon from '../public/static/icons/uses.json'
-import reminderIcon from '../public/static/icons/reminder.json'
 import { JetBrains_Mono } from 'next/font/google'
 
 const jetbrainsMono = JetBrains_Mono({
@@ -42,11 +38,7 @@ export default function CommandBar(props) {
   const aboutRef = useRef()
   const articlesRef = useRef()
   const projectsRef = useRef()
-  const talksRef = useRef()
   const podcastsRef = useRef()
-  const investingRef = useRef()
-  const usesRef = useRef()
-  const reminderRef = useRef()
   const router = useRouter()
   const [showToast, setShowToast] = useState(false)
 

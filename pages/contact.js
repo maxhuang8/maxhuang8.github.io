@@ -25,6 +25,7 @@ function Contact(props) {
   const [showToast, setShowToast] = React.useState(false)
 
   //below is currently not in use since site is static
+  {/*
   const onSendEmail = async (e) => {
     e.preventDefault()
 
@@ -51,6 +52,7 @@ function Contact(props) {
       setShowToast(true)
     }
   }
+  */}
 
   return (
     <>
@@ -65,7 +67,10 @@ function Contact(props) {
 
       <Box>
         <p dangerouslySetInnerHTML={{ __html: description }} />
-        <h2>Send me an email</h2>
+        <h2>Feel free to send me an email</h2>
+        <p> Personal: buddymax [at] gmail [dot] com <br></br>
+           School: maxhuang [at] uchicago [dot] edu</p>
+        {/*
         <Form onSubmit={onSendEmail}>
           <FormGroup>
             <Label htmlFor="name">Name</Label>
@@ -91,6 +96,7 @@ function Contact(props) {
           showToast={showToast}
           setShowToast={setShowToast}
         />
+        */}
       </Box>
     </>
   )
