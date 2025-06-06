@@ -9,13 +9,13 @@ function Post(props) {
     return <ErrorMessage code={props.errorCode} />
   }
 
-  const title = `${props.title} // Zeno Rocha`
+  const title = `${props.title} // Max Huang`
   const description = props.description || ''
-  const url = `https://zenorocha.com/${props.slug}`
+  const url = `https://maxhuang8.github.io/${props.slug}`
   const date = new Date(props.date).toISOString()
   const image = props.image
-    ? `https://zenorocha.com${props.image}`
-    : 'https://zenorocha.com/static/images/home-opt.jpg'
+    ? `https://maxhuang8.github.io${props.image}`
+    : 'https://maxhuang8.github.io/static/images/home-bw.jpg'
 
   return (
     <>
@@ -33,7 +33,7 @@ function Post(props) {
       </Head>
 
       <ArticleJsonLd
-        authorName="Zeno Rocha"
+        authorName="Max Huang"
         type="Blog"
         url={url}
         title={title}
@@ -64,14 +64,16 @@ export async function getStaticProps({ params }) {
     const content = await convertMarkdownToHtml(post.content || '')
 
     const isProd = process.env.NODE_ENV === 'production'
-    const base = isProd ? 'https://zenorocha.com' : 'http://localhost:3000'
+    const base = isProd ? 'https://maxhuang8.github.io' : 'http://localhost:3000'
+
+    const isExport = process.env.NEXT_PHASE === 'phase-production-export'
 
     return {
       props: {
         ...post,
         content,
       },
-      revalidate: 60,
+      ...(isExport ? {} : { revalidate: 60 }),
     }
   } catch (e) {
     return { props: { errorCode: 404 } }
@@ -89,7 +91,9 @@ export async function getStaticPaths() {
         },
       }
     }),
-    fallback: 'blocking',
+    fallback: process.env.NEXT_PHASE === 'phase-production-export'
+      ? false
+      : 'blocking',
   }
 }
 
