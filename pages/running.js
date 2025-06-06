@@ -13,7 +13,7 @@ export async function getStaticProps() {
     description:
       "I am a <strong>distance runner</strong> at heart. Although I was a soccer player for much of my life, I have been racing local 5ks since I was 8 years old, and throughout high school, I <strong>fell in love</strong> with running. I now compete at the <strong>NCAA level</strong>, racing for the Maroons. Though I thrive on the competition, it is the <strong>simple joy</strong> of running that makes me love the sport the most.",
     tagline: 'Comraderie and Competition',
-    image: '/static/images/projects-bw.jpg',
+    image: '/static/images/running-bw.jpg',
     primaryColor: 'purple',
     secondaryColor: 'cyan',
   }

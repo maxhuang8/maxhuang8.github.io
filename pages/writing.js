@@ -29,8 +29,8 @@ export async function getStaticProps() {
   return {
     props: {
       title: 'Writing // Max Huang',
-      tagline: 'Stories. Updates. Guides.',
-      image: '/static/images/articles-bw.jpg',
+      tagline: 'Paper. Pen. Purpose.',
+      image: '/static/images/writing-bw.jpg',
       primaryColor: 'yellow',
       secondaryColor: 'pink',
       featuredPosts,
@@ -75,7 +75,7 @@ function Writing(props) {
   }
 
   const { title, image } = props
-  const description = `Here you can find all the <strong>${props.allPosts.length} articles</strong> I wrote. You can read about web development, software engineering, and tech career in both English and Portuguese.`
+  const description = `I have always <strong>loved writing</strong> and see it as complementary to my endeavors in STEM disciplines. I enjoy it as a <strong>means for expression</strong> and believe it can serve as a <strong>catalyst for change</strong>. Here you can read through <strong>${props.allPosts.length}</strong> of my pieces. You'll find a mix of essays, articles, and poetry.`
 
   return (
     <>

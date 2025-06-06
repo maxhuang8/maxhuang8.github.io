@@ -10,7 +10,7 @@ export async function getStaticProps() {
   const meta = {
     title: 'Contact // Max Huang',
     tagline: 'Emails. Emails. Emails.',
-    image: '/static/images/reminder-bw.jpg',
+    image: '/static/images/home-bw.jpg',
     primaryColor: 'cyan',
     secondaryColor: 'green',
   }

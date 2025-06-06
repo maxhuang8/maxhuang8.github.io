@@ -32,7 +32,7 @@ export async function getStaticProps() {
     props: {
       title: 'Research // Max Huang',
       tagline: 'Test. Fail. Solve. Share.',
-      image: '/static/images/articles-bw.jpg',
+      image: '/static/images/research-bw.jpg',
       primaryColor: 'yellow',
       secondaryColor: 'pink',
       featuredPapers,
