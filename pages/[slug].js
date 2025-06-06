@@ -66,14 +66,11 @@ export async function getStaticProps({ params }) {
     const isProd = process.env.NODE_ENV === 'production'
     const base = isProd ? 'https://maxhuang8.github.io' : 'http://localhost:3000'
 
-    const isExport = process.env.NEXT_PHASE === 'phase-production-export'
-
     return {
       props: {
         ...post,
         content,
       },
-      ...(isExport ? {} : { revalidate: 60 }),
     }
   } catch (e) {
     return { props: { errorCode: 404 } }
@@ -84,16 +81,10 @@ export async function getStaticPaths() {
   const posts = getAllPosts(['slug'])
 
   return {
-    paths: posts.map(post => {
-      return {
-        params: {
-          slug: post.slug,
-        },
-      }
-    }),
-    fallback: process.env.NEXT_PHASE === 'phase-production-export'
-      ? false
-      : 'blocking',
+    paths: posts.map(post => ({
+      params: { slug: post.slug },
+    })),
+    fallback: false,
   }
 }
 
