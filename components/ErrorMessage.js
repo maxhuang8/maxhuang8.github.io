@@ -6,7 +6,7 @@ export default function ErrorMessage({ code }) {
   let description = "Something isn't right."
 
   if (code === 404) {
-    title = 'four oh four'
+    title = '404'
     description = "This page doesn't exist."
   }
 
