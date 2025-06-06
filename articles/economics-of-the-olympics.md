@@ -1,7 +1,7 @@
 ---
-title: "White Elephants in Rio: Unmet Economic Promises of the 2016 Games"
+title: "White Elephants in Rio: Unmet Economic Promises of the 2016 Olympic Games"
 abbrTitle: White Elephants in Rio
-description: "Unmet Economic Promises of the 2016 Games"
+description: "Unmet Economic Promises of the 2016 Olympic Games"
 image: /static/img/posts/economics-of-the-olympics.jpg
 date: "2024-02-27"
 ---
@@ -62,6 +62,8 @@ The long-term well-being of these displaced communities remains compromised. Man
 <div class="citation">
   Zimbalist, A. (2017). The economic legacy of Rio 2016. In A. Zimbalist (Ed.), <em>Rio 2016: Olympic myths, hard realities</em> (pp. 207–238). Brookings Institution Press. http://www.jstor.org/stable/10.7864/j.ctt1vjqnp9.13
 </div>
+
+<br>
 
 ### Apendix 1
 
