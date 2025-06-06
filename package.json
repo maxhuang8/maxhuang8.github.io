@@ -6,8 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "lint": "next lint",
-    "export": "next export",
-    "deploy": "vercel --prod"
+    "pages":  "bash scripts/pages.sh",
+    "deploy": "npm run build && npm run pages"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
