@@ -37,24 +37,22 @@ function About({ title, description, image }) {
   const renderIntro = () => (
     <Container>
       <Section>
-        <HeadshotAberration src="/static/images/about_headshot.JPG" size={300} />
+        <HeadshotAberration src="/static/images/about_headshot.JPG" size={308} />
       </Section>
 
       <Section>
         <Paragraph css={{ marginTop: '16px', '@bp2': { marginTop: '-6px' } }}>
           <strong>Hi, I'm Max Huang.</strong>{' '}
           Currently, I'm studying molecular engineering at <strong>UChicago</strong>, 
-          where I'm also a year-round varsity athlete on the XC and track teams.
+          where I also run varsity XC and track.
         </Paragraph>
 
-        <Paragraph css={{ marginTop: '24px' }}>
-          I'm an <strong>undergraduate researcher</strong> in the Tian Lab,
-          working on materials synthesis for solid polymer electrolytes. Before
-          that, I did molecular biology research in high school at{' '}
-          <strong>Phillips Academy Andover</strong>.
+        <Paragraph css={{ marginTop: '10px', '@bp2': { marginTop: '-14px' } }}>
+          I'm an <strong>undergrad researcher</strong> in the Tian Lab,
+          working on materials synthesis for solid polymer electrolytes.
         </Paragraph>
 
-        <Paragraph css={{ marginTop: '24px' }}>
+        <Paragraph css={{ marginTop: '10px', '@bp2': { marginTop: '-14px' } }}>
           I'm <strong>fascinated by</strong> bioelectronics and healthcare equity.
           When I'm not working, I like running, watching TV, and <strong>sleeping</strong>.
         </Paragraph>
@@ -69,7 +67,7 @@ function About({ title, description, image }) {
     return (
       <div>
         <p>
-          This is made for journalists and organizers to copy-and-paste.
+          Copy-and-paste bio for conference organizers and journalists.
         </p>
 
         <blockquote>
@@ -204,15 +202,15 @@ const ButtonsContainer = styled('p', {
   alignItems: 'center',
 })
 
-/* image column 300 px, text column fills remaining width */
+/* image column 304 px, text column fills remaining width */
 const Section = styled('div', {
   marginTop: '0px',
   width: 'auto',
 
   '@bp2': {
     '&:first-of-type': {
-      flex: '0 0 300px',
-      maxWidth: '300px',
+      flex: '0 0 304px',
+      maxWidth: '304px',
       marginRight: '40px',
     },
     '&:last-of-type': {

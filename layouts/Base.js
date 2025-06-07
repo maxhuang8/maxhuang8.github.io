@@ -4,9 +4,12 @@ import Footer from '../components/Footer'
 import { PostMain, PostContent, PostContainer } from '../components/Post'
 import { Wrapper } from '../components/Wrapper'
 import Typewriter from '../components/Typewriter'
+import { useRouter } from 'next/router'
 
 export default function Base({ children }) {
   const { title, tagline, primaryColor, secondaryColor } = children.props
+
+  const router = useRouter()
 
   return (
     <Wrapper>
@@ -32,8 +35,8 @@ export default function Base({ children }) {
               }}
             >
               <Typewriter
+                key={router.asPath}
                 words={[tagline ? tagline : title]}
-                pauseBeforeDelete={5000}
               />
             </GradientTitle>
             {children}

@@ -19,7 +19,7 @@ export default function Typewriter ({
   words,
   typingSpeed      = 120,
   deletingSpeed    = 60,
-  pauseBeforeDelete = 2000,
+  pauseBeforeDelete = 20000,
   pauseAfterDelete  = 1000,  
 }) {
   const [wordIdx, setWordIdx] = useState(0)

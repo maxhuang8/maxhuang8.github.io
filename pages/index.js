@@ -8,6 +8,8 @@ import { Wrapper } from '../components/Wrapper'
 import { getPersonJsonLd } from '../lib/json-ld'
 import Typewriter from '../components/Typewriter'
 import PolymerizationCursor from '../components/PolymerizationCursor'
+import PolymerizationHint from '../components/PolymerizationHint'
+
 
 export async function getStaticProps() {
   return {
@@ -25,6 +27,7 @@ export default function Index(props) {
   return (
     <Wrapper>
       <PolymerizationCursor />
+      <PolymerizationHint />
       <Head>
         <title>{title}</title>
         <meta content={title} property="og:title" />
@@ -54,12 +57,13 @@ export default function Index(props) {
                 Obsessed&nbsp;with&nbsp;
                 <Typewriter
                   words={[
-                    'solving puzzles.', 
+                    'solving problems.', 
                     'building stuff.', 
                     'leveraging AI.', 
                     'healthcare equity.', 
                     'sleep.'
                   ]}
+                  pauseBeforeDelete={2000}
                 />
               </p>
               <ShortcutHome />

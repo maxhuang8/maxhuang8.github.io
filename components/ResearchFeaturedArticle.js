@@ -3,14 +3,17 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 
 export default function ResearchFeaturedArticle(props) {
-  const handleClick = (e) => {
-    if (!props.href || props.href === '#') {
-      e.preventDefault()
-    }
-  }
+  const isLinked = !!props.href
 
   return (
-    <Article href={props.href || '#'} onClick={handleClick}>
+    <Article
+      as={isLinked ? 'a' : 'div'}
+      {...(isLinked && {
+        href: props.href,
+        target: '_blank',
+        rel: 'noopener noreferrer',
+      })}
+    >
       <Animation index={props.index}>
         <Container>
           <ImageContainer css={{ backgroundImage: `url(${props.image})` }} />
@@ -43,7 +46,6 @@ function Animation(props) {
           exit={{ opacity: 0 }}
         />
       )}
-
       {props.children}
     </AnimContainer>
   )
@@ -72,7 +74,7 @@ const ImageContainer = styled('div', {
   backgroundSize: 'cover',
   backgroundRepeat: 'no-repeat',
   backgroundPosition: 'center center',
-  filter: 'grayscale(0.6)',
+  filter: 'grayscale(0.8)',
   transition: 'filter 0.3s ease',
     '&:hover': {
       filter: 'grayscale(0.0)',

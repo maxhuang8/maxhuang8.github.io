@@ -5,55 +5,48 @@ import { motion } from 'framer-motion'
 import BlogDate from './BlogDate'
 
 export default function ResearchListItem(props) {
-  const handleClick = (e) => {
-    if (!props.href || props.href === '#') {
-      e.preventDefault()
-    }
+  const { href = '', index, title, date } = props
+  const isExternal = href && !href.startsWith('/')
+
+  const inner = (
+    <Animation index={index}>
+      <Title>{title}</Title>
+
+      {date === 'TBD' ? (
+        <TBDText>TBD</TBDText>
+      ) : isExternal ? (
+        <IconContainer>
+          <i className="ri-arrow-right-up-line"></i>
+        </IconContainer>
+      ) : (
+        <Date>
+          <BlogDate dateString={date} />
+        </Date>
+      )}
+    </Animation>
+  )
+
+  if (isExternal) {
+    return (
+      <Item>
+        <Anchor href={href} target="_blank" rel="noopener noreferrer">
+          {inner}
+        </Anchor>
+      </Item>
+    )
   }
 
-  // Articles with internal routing
-  if (props.href && props.href.charAt(0) === '/') {
+  if (href) {
     return (
       <ArticleItem>
-        <Link href={props.href} passHref>
-          <Anchor onClick={handleClick}>
-            <Animation index={props.index}>
-              <Title>{props.title}</Title>
-              <Date>
-                {props.date === 'TBD' ? (
-                  <TBDText>TBD</TBDText>
-                ) : (
-                  <BlogDate dateString={props.date} />
-                )}
-              </Date>
-            </Animation>
-          </Anchor>
+        <Link href={href} passHref legacyBehavior>
+          <Anchor>{inner}</Anchor>
         </Link>
       </ArticleItem>
     )
   }
 
-  // External links or no link
-  return (
-    <Item>
-      <Anchor href={props.href || '#'} target={props.href ? "_blank" : undefined} onClick={handleClick}>
-        <Animation index={props.index}>
-          <Title>{props.title}</Title>
-          {props.date === 'TBD' ? (
-            <TBDText>TBD</TBDText>
-          ) : props.href ? (
-            <IconContainer>
-              <i className="ri-arrow-right-up-line"></i>
-            </IconContainer>
-          ) : (
-            <Date>
-              <BlogDate dateString={props.date} />
-            </Date>
-          )}
-        </Animation>
-      </Anchor>
-    </Item>
-  )
+  return <Item>{inner}</Item>
 }
 
 function Animation(props) {
@@ -73,7 +66,6 @@ function Animation(props) {
           exit={{ opacity: 0 }}
         />
       )}
-
       {props.children}
     </AnimContainer>
   )
@@ -108,15 +100,7 @@ const Date = styled('span', {
   '@bp2': { textAlign: 'right' },
 })
 
-const TBDText = styled('span', {
-  color: '$secondary',
-  display: 'block',
-  fontWeight: 500,
-  fontSize: '14px',
-  minWidth: '100px',
-  textAlign: 'left',
-  '@bp2': { textAlign: 'right' },
-})
+const TBDText = styled(Date, {}) // same styling
 
 const IconContainer = styled('span', {
   fontSize: '24px',

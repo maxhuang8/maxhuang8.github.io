@@ -53,74 +53,130 @@ export default function CommandBar(props) {
     {
       id: 'copy',
       name: 'Copy Link',
-      shortcut: ['l'],
       keywords: 'copy-link',
       section: 'General',
       perform: copyLink,
-      icon: <Lottie lottieRef={copyLinkRef} style={iconSize} animationData={copyLinkIcon} loop={false} autoplay={false} />,
+      icon: (
+        <Lottie
+          lottieRef={copyLinkRef}
+          style={iconSize}
+          animationData={copyLinkIcon}
+          loop={false}
+          autoplay={false}
+        />
+      ),
     },
     {
       id: 'email',
       name: 'Send Email',
-      shortcut: ['e'],
       keywords: 'send-email',
       section: 'General',
       perform: () => router.push('/contact'),
-      icon: <Lottie lottieRef={emailRef} style={iconSize} animationData={emailIcon} loop={false} autoplay={false} />,
+      icon: (
+        <Lottie
+          lottieRef={emailRef}
+          style={iconSize}
+          animationData={emailIcon}
+          loop={false}
+          autoplay={false}
+        />
+      ),
     },
     {
       id: 'home',
       name: 'Home',
-      shortcut: ['g', 'h'],
       keywords: 'go-home',
       section: 'Go To',
       perform: () => router.push('/'),
-      icon: <Lottie lottieRef={homeRef} style={iconSize} animationData={homeIcon} loop={false} autoplay={false} />,
+      icon: (
+        <Lottie
+          lottieRef={homeRef}
+          style={iconSize}
+          animationData={homeIcon}
+          loop={false}
+          autoplay={false}
+        />
+      ),
     },
     {
       id: 'about',
       name: 'About',
-      shortcut: ['g', 'a'],
       keywords: 'go-about',
       section: 'Go To',
       perform: () => router.push('/about'),
-      icon: <Lottie lottieRef={aboutRef} style={iconSize} animationData={aboutIcon} loop={false} autoplay={false} />,
+      icon: (
+        <Lottie
+          lottieRef={aboutRef}
+          style={iconSize}
+          animationData={aboutIcon}
+          loop={false}
+          autoplay={false}
+        />
+      ),
     },
     {
       id: 'research',
       name: 'Research',
-      shortcut: ['g', 'b'],
       keywords: 'go-articles',
       section: 'Go To',
       perform: () => router.push('/research'),
-      icon: <Lottie lottieRef={researchRef} style={iconSize} animationData={researchIcon} loop={false} autoplay={false} />,
+      icon: (
+        <Lottie
+          lottieRef={researchRef}
+          style={iconSize}
+          animationData={researchIcon}
+          loop={false}
+          autoplay={false}
+        />
+      ),
     },
     {
       id: 'projects',
       name: 'Projects',
-      shortcut: ['g', 'p'],
       keywords: 'go-projects',
       section: 'Go To',
       perform: () => router.push('/projects'),
-      icon: <Lottie lottieRef={projectsRef} style={iconSize} animationData={projectsIcon} loop={false} autoplay={false} />,
+      icon: (
+        <Lottie
+          lottieRef={projectsRef}
+          style={iconSize}
+          animationData={projectsIcon}
+          loop={false}
+          autoplay={false}
+        />
+      ),
     },
     {
       id: 'writing',
       name: 'Writing',
-      shortcut: ['g', 'c'],
       keywords: 'go-writing',
       section: 'Go To',
       perform: () => router.push('/writing'),
-      icon: <Lottie lottieRef={articlesRef} style={iconSize} animationData={articlesIcon} loop={false} autoplay={false} />,
+      icon: (
+        <Lottie
+          lottieRef={articlesRef}
+          style={iconSize}
+          animationData={articlesIcon}
+          loop={false}
+          autoplay={false}
+        />
+      ),
     },
     {
       id: 'running',
       name: 'Running',
-      shortcut: ['g', 't'],
       keywords: 'go-running',
       section: 'Go To',
       perform: () => router.push('/running'),
-      icon: <Lottie lottieRef={podcastsRef} style={iconSize} animationData={podcastsIcon} loop={false} autoplay={false} />,
+      icon: (
+        <Lottie
+          lottieRef={podcastsRef}
+          style={iconSize}
+          animationData={podcastsIcon}
+          loop={false}
+          autoplay={false}
+        />
+      ),
     },
   ]
 
@@ -189,13 +245,6 @@ const ResultItem = forwardRef(({ action, active }, ref) => {
           <span>{action.name}</span>
         </ActionRow>
       </Action>
-      {action.shortcut?.length ? (
-        <Shortcut aria-hidden>
-          {action.shortcut.map(shortcut => (
-            <Kbd key={shortcut}>{shortcut}</Kbd>
-          ))}
-        </Shortcut>
-      ) : null}
     </Box>
   )
 })

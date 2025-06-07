@@ -12,7 +12,7 @@ const papers = [
     {
         id: 2,
         title: 'Coming soon',
-        description: 'Hopefully will be coming soon. In the meantime, stay tuned and check out my other work!',
+        description: 'Hope to showcase more on my website soon! Stay tuned for updates on my work.',
         image: 'static/img/posts/tbd.jpg',
         url: '',
         readTime: 'TBD MIN READ',

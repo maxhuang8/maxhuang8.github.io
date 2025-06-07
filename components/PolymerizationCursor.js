@@ -1,6 +1,7 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 export default function PolymerizationCursor() {
+  const [isDesktop, setIsDesktop] = useState(false)
   const LIFETIME_MS = 4000
   const ADD_INTERVAL_MS = 60
   const SPRING_K = 0.003
@@ -16,6 +17,20 @@ export default function PolymerizationCursor() {
   const region = useRef({ left: 0, right: 0, top: 0, bottom: 0 })
   const lastAdd = useRef(0)
 
+  // Check if device is desktop
+  useEffect(() => {
+    const checkDevice = () => {
+      // Check for touch capability and screen width
+      const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+      const isLargeScreen = window.innerWidth > 768
+      setIsDesktop(!hasTouch && isLargeScreen)
+    }
+    
+    checkDevice()
+    window.addEventListener('resize', checkDevice)
+    return () => window.removeEventListener('resize', checkDevice)
+  }, [])
+
   const addBond = (i, j) => {
     if (i === j) return
     for (const [a, b] of bonds.current) if ((a === i && b === j) || (a === j && b === i)) return
@@ -23,6 +38,8 @@ export default function PolymerizationCursor() {
   }
 
   useEffect(() => {
+    if (!isDesktop) return // Don't run animation on mobile
+
     const canvas = canvasRef.current
     const ctx = canvas.getContext('2d')
     let frameId
@@ -140,8 +157,6 @@ export default function PolymerizationCursor() {
         }
       }
 
-      // (Tip radical highlight removed as requested)
-
       frameId = requestAnimationFrame(step)
     }
     frameId = requestAnimationFrame(step)
@@ -151,7 +166,15 @@ export default function PolymerizationCursor() {
       window.removeEventListener('pointermove', handlePointerMove)
       window.removeEventListener('resize', resize)
     }
-  }, [])
+  }, [isDesktop])
 
-  return <canvas ref={canvasRef} style={{ position: 'fixed', inset: 0, zIndex: 3, pointerEvents: 'none' }} />
+  // Don't render anything on mobile
+  if (!isDesktop) return null
+
+  return (
+    <canvas 
+      ref={canvasRef} 
+      style={{ position: 'fixed', inset: 0, zIndex: 3, pointerEvents: 'none' }} 
+    />
+  )
 }
