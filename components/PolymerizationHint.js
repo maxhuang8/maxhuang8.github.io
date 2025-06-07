@@ -61,7 +61,7 @@ export default function PolymerizationHint() {
           }
         }
         .pulsing-hint {
-          animation: pulse 4s ease-in-out infinite;
+          animation: pulse 3s ease-in-out infinite;
         }
       `}</style>
       <div
@@ -69,18 +69,17 @@ export default function PolymerizationHint() {
         style={{
           position: 'fixed',
           left: '75%',
-          top: '50%',
+          top: '47.5%',
           transform: 'translate(-50%, -50%)',
-          fontSize: '11px',
-          color: 'rgba(255, 255, 255, 0.5)',
-          fontFamily: 'system-ui, -apple-system, sans-serif',
+          fontSize: '16px',
+          color: 'rgba(255, 255, 255, 0.55)',
           letterSpacing: '0.5px',
           pointerEvents: 'none',
           zIndex: 2,
           whiteSpace: 'nowrap',
         }}
       >
-        hover here {/*→*/}
+        try me {/*hover here→*/}
       </div>
     </>
   )
